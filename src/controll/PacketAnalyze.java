@@ -93,11 +93,11 @@ public class PacketAnalyze {
             put("硬件类型", String.valueOf(arpPacket.hardtype));
             put("协议类型", "ARP");
             put("操作字段", String.valueOf(arpPacket.operation));
-            put("IP首部", arpPacket.toString());// String toString: 返回描述此数据包的字符串;
-            put("发送方硬件地址", (String) arpPacket.getSenderHardwareAddress());
-            put("接收方硬件地址", (String) arpPacket.getTargetHardwareAddress());
-            put("源IP", (String) arpPacket.getSenderProtocolAddress());
-            put("目的IP", (String) arpPacket.getTargetProtocolAddress());
+            // put("IP首部", arpPacket.toString());// String toString: 返回描述此数据包的字符串;
+            put("发送方硬件地址", String.valueOf(arpPacket.getSenderHardwareAddress()));
+            put("接收方硬件地址", String.valueOf(arpPacket.getTargetHardwareAddress()));
+            put("源IP",  String.valueOf(arpPacket.getSenderProtocolAddress()));
+            put("目的IP", String.valueOf(arpPacket.getTargetProtocolAddress()));
         }};
     }
 

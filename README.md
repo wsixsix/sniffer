@@ -30,16 +30,24 @@ show包，实现GUI界面
 
 ## 相关说明
 ### 运行时问题
-抓包抓多了的时候就会像这样报错，说已经打开255个设备,java.10.I0Exception Create at jpcap.Jpcapcaptor.<init>(JpcapCapton.java:34) at jpcap.Jpcapcaptor.openDevice(Jpcapcaptor.java:67) at src.controll.PacketCapture.run(PacketCapture.java:96)
+抓包抓多了的时候就会像这样报错，说已经打开255个设备,
+java.10.I0Exception Create 
+at jpcap.Jpcapcaptor.<init>(JpcapCapton.java:34)
+at jpcap.Jpcapcaptor.openDevice(Jpcapcaptor.java:67) 
+at src.controll.PacketCapture.run(PacketCapture.java:96)
 
 ### 相关知识点
 首先JpcapCaptor.openDevice是Jpcap库中的一个方法，用于打开网络接口设备（即网卡设备）。使用此方法可以获取到网络接口的实例，以便进一步进行网络数据包的捕获和分析。
 
+
 以下是使用JpcapCaptor.openDevice方法的一般步骤：
 
 获取网络接口列表：首先，你需要获取本机的网络接口列表。这可以通过Jpcap提供的JpcapCaptor.getDeviceList()方法完成。该方法返回一组NetworkInterface对象，每个对象包含了对应网络接口的一些信息，如名称、描述、IP地址、MAC地址以及数据链路层名称和描述。
+
 选择要打开的网络接口：从获取到的网络接口列表中，选择你想要打开的网络接口。这通常基于你的需求，例如，你可能想要选择连接到外部网络的接口。
+
 打开网络接口：使用JpcapCaptor.openDevice()方法打开选择的网络接口。该方法需要几个参数，包括你想要打开的网卡设备实例、数据包的最大捕获长度、是否开启混杂模式以及抓包的超时时间。混杂模式允许你的程序捕获到所有经过网络接口的数据包，而不仅仅是那些目的地址是本机的数据包。
+
 以下是JpcapCaptor.openDevice方法的一个示例代码片段：
 
 java

@@ -53,16 +53,25 @@ JpcapCaptor captor = JpcapCaptor.openDevice(devices[index], 65535, false, 20); /
 ### 解决方法
 要解决这个问题，你可以尝试以下几种方法：
 1.关闭其他程序：确保没有其他程序（如其他网络监控工具或VPN软件）正在使用或占用网络接口。关闭这些程序后，尝试再次使用JpcapCaptor.openDevice打开网络接口。
+
 2.重启计算机：有时，简单地重启计算机可以释放被占用的网络接口资源。重启后，再次尝试打开网络接口。
+
 3.检查代码中的错误：确保你的代码中没有重复打开同一个网络接口的情况。每次调用JpcapCaptor.openDevice后，都应该相应地调用captor.close()来关闭接口，以避免资源泄露。
+
 4.检查权限问题：在某些情况下，没有足够的权限可能导致无法打开网络接口。确保你的程序以管理员或具有足够权限的用户身份运行。
+
 5.减少同时打开的网络接口数量：如果你的程序需要同时监控多个网络接口，尝试减少同时打开的网络接口数量。你可以设计一种策略，比如按顺序打开和关闭接口，或者只打开必要的接口。
+
 6.更新或替换库：如果上述方法都不奏效，可能是你使用的Jpcap库版本存在兼容性问题或已知bug。考虑更新到最新版本的Jpcap，或者寻找其他网络包捕获库作为替代，比如Pcap4J或WinPcap/Npcap。
+
 7.检查系统限制：某些操作系统对可以同时打开的网络接口数量有严格的限制。你可以通过查看操作系统的文档或联系技术支持来了解这些限制，并尝试调整系统设置以允许打开更多的网络接口。
+
 8.检查硬件问题：在某些情况下，网络接口硬件本身的问题也可能导致无法打开设备。检查网络接口卡（NIC）是否正常工作，或者尝试使用不同的网络接口。
+
 
 ## 参考资料
 1.参考Jpcap JAVA捕捉并分析网络数据包 https://blog.csdn.net/arjick/article/details/4525474 
+
 2.参考JpcapManager源码 http://code.google.com/p/ken-javaframeword/source/browse/trunk/JavaFramework2.0/src/com/shine/framework/Jpcap/JpcapManager.java
 
 

@@ -52,6 +52,7 @@ JpcapCaptor captor = JpcapCaptor.openDevice(devices[index], 65535, false, 20); /
 
 ### 解决方法
 要解决这个问题，你可以尝试以下几种方法：
+
 1.关闭其他程序：确保没有其他程序（如其他网络监控工具或VPN软件）正在使用或占用网络接口。关闭这些程序后，尝试再次使用JpcapCaptor.openDevice打开网络接口。
 
 2.重启计算机：有时，简单地重启计算机可以释放被占用的网络接口资源。重启后，再次尝试打开网络接口。
